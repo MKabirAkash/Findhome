@@ -81,17 +81,25 @@
           </li>
         </ul>
 
+
         <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="fas fa-dashboard"></i> Dashboard</a>
+            </li>
+          {% else %}
           <li class="nav-item mr-3">
-            <a class="nav-link" href="register.html">
+            <a class="nav-link" href="{% url 'register' %}">
               <i class="fas fa-user-plus"></i> Register</a>
           </li>
           <li class="nav-item mr-3">
-            <a class="nav-link" href="login.html">
+            <a class="nav-link" href="{% url 'login' %}">
               <i class="fas fa-sign-in-alt"></i>
 
               Login</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -108,6 +116,6 @@
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'js/lightbox.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/mains.js' %}"></script>
 </body>
 </html>
