@@ -11,7 +11,7 @@
     <!-- Custom -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
-    <title>Findhome</title>
+    <title>Findhome{% block title %}{% endblock %}</title>
 </head>
 <body>
   <!-- Top Bar -->
@@ -87,6 +87,13 @@
             <li class="nav-item mr-3">
               <a class="nav-link" href="{% url 'dashboard' %}">
                 <i class="fas fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="javascript:{document.getElementById('logout').submit();}">
+                <i class="fas fa-sign-out-alt"></i> Log out</a>
+                <form id="logout" action="{% url 'logout' %}" method="POST">
+                {% csrf_token%}
+                <input type="hidden"/>
             </li>
           {% else %}
           <li class="nav-item mr-3">
