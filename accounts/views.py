@@ -51,4 +51,4 @@ def dashboard(request):
 def logout(request):
     if request.method=='POST':
         auth.logout(request)
-        return render(request,'pages/index.html')
+        return render(request,'account/login.html')
