@@ -94,6 +94,7 @@
                 <form id="logout" action="{% url 'logout' %}" method="POST">
                 {% csrf_token%}
                 <input type="hidden"/>
+                </form>
             </li>
           {% else %}
           <li class="nav-item mr-3">

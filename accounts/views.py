@@ -46,7 +46,11 @@ def login(request):
         return render(request,'account/login.html')
 
 def dashboard(request):
-    return render(request,'account/dashboard.html')
+    user=request.user
+    context={
+        'user':user
+    }
+    return render(request,'account/dashboard.html',context)
 
 def logout(request):
     if request.method=='POST':
